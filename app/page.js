@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center">
       <div>Welcome, Login</div>
       <Link href="/todo">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white rounded px-4 py-2 font-bold">
+        <button className="m-8 rounded-md bg-neutral-700 p-4 text-neutral-100 hover:bg-accent">
           Go to App
         </button>
       </Link>
