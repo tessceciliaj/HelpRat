@@ -1,7 +1,7 @@
-export default function Todo() {
+export default function Login() {
   return (
     <main className="flex min-h-screen flex-col items-center">
-      HelpRat ToDo
+      HelpRat Login
     </main>
   )
 }
