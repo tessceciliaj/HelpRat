@@ -1,16 +1,24 @@
-import Link from 'next/link'
 import Header from '@/components/Header'
+import Todo from '@/components/Todo'
 
 export default function Home() {
+  const mockTodos = [
+    {
+      name: 'test',
+      done: false,
+    },
+    {
+      name: 'hello',
+      done: true,
+    },
+  ]
+
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Header />
-      <div>HelpRat App</div>
-      <Link href="/login">
-        <button className="m-8 rounded-md bg-neutral-700 p-4 text-neutral-100 hover:bg-accent">
-          Go to Login
-        </button>
-      </Link>
+      {mockTodos.map(todo => (
+        <Todo key={todo.name} />
+      ))}
     </main>
   )
 }
