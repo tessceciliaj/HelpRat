@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="m-6 flex items-center justify-center">
-      <div className="max-w-md rounded bg-neutral-400 px-6 py-4">
+      <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Odio facilisis
         mauris sit amet. Imperdiet proin fermentum leo vel orci porta. Tincidunt
