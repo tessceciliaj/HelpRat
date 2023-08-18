@@ -1,20 +1,25 @@
-import Link from 'next/link'
-import Header from '@/components/Header'
 import { getTasks } from '@/lib/routes'
+import Header from '@/components/Header'
+import Todo from '@/components/Todo'
 
 export default async function Home() {
   const tasks = await getTasks()
   console.log(tasks)
 
+  const mockTodos = [
+    {
+      name: 'test',
+      done: false,
+    },
+    {
+      name: 'hello',
+      done: true,
+    },
+  ]
+
   return (
     <main>
       <Header />
-      <div>HelpRat App</div>
-      <Link href="/login">
-        <button className="m-8 rounded-md bg-neutral-700 p-4 text-neutral-100 hover:bg-accent">
-          Go to Login
-        </button>
-      </Link>
       <div className="m-6 flex items-center justify-center">
         <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -30,6 +35,9 @@ export default async function Home() {
           sit amet.
         </div>
       </div>
+      {mockTodos.map(todo => (
+        <Todo key={todo.name} />
+      ))}
     </main>
   )
 }
