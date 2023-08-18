@@ -1,6 +1,10 @@
 import Link from 'next/link'
+import { getTasks } from '@/lib/routes'
 
-export default function Home() {
+export default async function Home() {
+  const tasks = await getTasks()
+  console.log(tasks)
+
   return (
     <main className="flex min-h-screen flex-col items-center">
       <div>HelpRat App</div>
