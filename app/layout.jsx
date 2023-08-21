@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`flex flex-col items-center justify-center p-6 ${lexend.variable} font-sans`}>
+        className={`flex flex-col items-center justify-center bg-neutral-200 p-6 ${lexend.variable} font-sans`}>
         {children}
       </body>
     </html>
