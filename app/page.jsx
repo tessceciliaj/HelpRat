@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import { Plus } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -11,6 +12,10 @@ export default function Home() {
           Go to Login
         </button>
       </Link>
+
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900">
+        <Plus color="#fff" className="h-6 w-6" />
+      </div>
     </main>
   )
 }
