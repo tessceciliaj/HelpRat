@@ -7,16 +7,19 @@ export default async function Home() {
   console.log(tasks)
 
   return (
-    <main>
+    <main className="max-w-3xl">
       <Header />
-      <div>HelpRat App</div>
-      <Link href="/login">
-        <button className="m-8 rounded-md bg-neutral-700 p-4 text-neutral-100 hover:bg-accent">
-          Go to Login
-        </button>
-      </Link>
-      <div className="m-6 flex items-center justify-center">
-        <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
+      {/* Temporary div, remove when necessary */}
+      <div className="flex items-center justify-center">
+        <div>HelpRat App</div>
+        <Link href="/login">
+          <button className="m-8 rounded-md bg-neutral-700 p-4 text-neutral-100 hover:bg-accent">
+            Go to Login
+          </button>
+        </Link>
+      </div>
+      <div className="flex items-center justify-center">
+        <div className="rounded bg-neutral-400 px-6 py-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio
           facilisis mauris sit amet. Imperdiet proin fermentum leo vel orci
