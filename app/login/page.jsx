@@ -21,7 +21,7 @@ export default function Login() {
 
         <div className="flex items-center justify-between pb-6">
           <button type="button">
-            <p className="mb-0 mr-2">Don't have an account? Register</p>
+            <p className="mb-0 mr-2">Don&apos;t have an account? Register</p>
           </button>
         </div>
       </form>
