@@ -6,6 +6,9 @@ const lexend = Lexend({ subsets: ['latin'], variable: ['--font-lexend'] })
 export const metadata = {
   title: 'helpRat',
   description: 'Todo-list',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({ children }) {
