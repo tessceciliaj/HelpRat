@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
+import TaskModule from '@/components/TaskModule'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
           Go to Login
         </button>
       </Link>
+      <TaskModule />
     </main>
   )
 }
