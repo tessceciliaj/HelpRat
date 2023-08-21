@@ -4,11 +4,11 @@ import Todo from '@/components/Todo'
 export default function Home() {
   const mockTodos = [
     {
-      name: 'test',
+      name: 'buy milk',
       done: false,
     },
     {
-      name: 'hello',
+      name: 'clean room',
       done: true,
     },
   ]
@@ -16,9 +16,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Header />
-      {mockTodos.map(todo => (
-        <Todo key={todo.name} />
-      ))}
+      <section className="mt-16 flex flex-col gap-6 self-start px-6">
+        {mockTodos.map(todo => (
+          <Todo key={todo.name} {...todo} />
+        ))}
+      </section>
     </main>
   )
 }
