@@ -1,7 +1,6 @@
 import { getTasks } from '@/lib/routes'
 import Header from '@/components/Header'
 import Todo from '@/components/Todo'
-import Link from 'next/link'
 
 export default async function Home() {
   const tasks = await getTasks()
@@ -21,22 +20,11 @@ export default async function Home() {
   return (
     <main className="w-full max-w-3xl">
       <Header />
-      {/* Temporary div, remove when necessary */}
-      <div className="flex items-center justify-center">
-        <div>HelpRat App</div>
-        <Link href="/login">
-          <button className="m-8 rounded-md bg-neutral-700 p-4 text-neutral-100 hover:bg-accent">
-            Go to Login
-          </button>
-        </Link>
-      </div>
-      <div className="flex items-center justify-center">
-        <div className="rounded border-2 border-solid border-neutral-400 px-6 py-4">
-          {mockTodos.map(todo => (
-            <Todo key={todo.name} {...todo} />
-          ))}
-        </div>
-      </div>
+      <section className="mt-16 flex flex-col gap-6 self-start px-6">
+        {mockTodos.map(todo => (
+          <Todo key={todo.name} {...todo} />
+        ))}
+      </section>
     </main>
   )
 }
