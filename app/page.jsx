@@ -8,11 +8,11 @@ export default async function Home() {
 
   const mockTodos = [
     {
-      name: 'test',
+      name: 'buy milk',
       done: false,
     },
     {
-      name: 'hello',
+      name: 'clean room',
       done: true,
     },
   ]
@@ -35,9 +35,9 @@ export default async function Home() {
           sit amet.
         </div>
       </div>
-      {mockTodos.map(todo => (
-        <Todo key={todo.name} />
-      ))}
+        {mockTodos.map(todo => (
+          <Todo key={todo.name} {...todo} />
+        ))}
     </main>
   )
 }
