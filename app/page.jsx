@@ -1,6 +1,7 @@
 import { getTasks } from '@/lib/routes'
 import Header from '@/components/Header'
 import Todo from '@/components/Todo'
+import Link from 'next/link'
 
 export default async function Home() {
   const tasks = await getTasks()
@@ -26,8 +27,8 @@ export default async function Home() {
           Go to Login
         </button>
       </Link>
-      <div className="m-6 flex items-center justify-center">
-        <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
+      <div className="flex items-center justify-center">
+        <div className="rounded bg-neutral-400 px-6 py-4">
           {mockTodos.map(todo => (
             <Todo key={todo.name} {...todo} />
           ))}
