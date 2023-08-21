@@ -1,7 +1,11 @@
+import { getTasks } from '@/lib/routes'
 import Header from '@/components/Header'
 import Todo from '@/components/Todo'
 
-export default function Home() {
+export default async function Home() {
+  const tasks = await getTasks()
+  console.log(tasks)
+
   const mockTodos = [
     {
       name: 'buy milk',
