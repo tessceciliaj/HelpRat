@@ -7,7 +7,7 @@ export default async function Home() {
   console.log(tasks)
 
   return (
-    <main>
+    <main className="flex flex-col items-center justify-center">
       <Header />
       <div>HelpRat App</div>
       <Link href="/login">
