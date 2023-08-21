@@ -13,7 +13,7 @@ export default function Home() {
         </button>
       </Link>
 
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900">
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 hover:scale-110">
         <Plus color="#fff" className="h-6 w-6" />
       </div>
     </main>
