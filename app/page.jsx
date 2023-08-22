@@ -1,6 +1,8 @@
 import { getTasks } from '@/lib/routes'
 import Header from '@/components/Header'
 import Todo from '@/components/Todo'
+import TaskModule from '@/components/TaskModule'
+
 
 export default async function Home() {
   const tasks = await getTasks()
@@ -25,6 +27,7 @@ export default async function Home() {
           <Todo key={todo.name} {...todo} />
         ))}
       </section>
+      <TaskModule />
     </main>
   )
 }
