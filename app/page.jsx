@@ -32,13 +32,6 @@ export default async function Home() {
         <Plus color="#fff" className="h-6 w-6" />
       </div>
       <TaskModule />
-      <div className="flex items-center justify-center">
-        <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
-          {mockTodos.map(todo => (
-            <Todo key={todo.name} {...todo} />
-          ))}
-        </div>
-      </div>
       <Toaster />
     </main>
   )
