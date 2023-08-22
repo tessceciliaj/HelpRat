@@ -6,12 +6,18 @@ const lexend = Lexend({ subsets: ['latin'], variable: ['--font-lexend'] })
 export const metadata = {
   title: 'helpRat',
   description: 'Todo-list',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${lexend.variable} font-sans`}>{children}</body>
+      <body
+        className={`flex flex-col items-center justify-center bg-neutral-200 p-6 ${lexend.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   )
 }
