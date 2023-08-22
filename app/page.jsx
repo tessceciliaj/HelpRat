@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Todo from '@/components/Todo'
 import { Plus } from 'lucide-react'
 import TaskModule from '@/components/TaskModule'
+import Toaster from '@/components/Toaster'
 
 export default async function Home() {
   const tasks = await getTasks()
@@ -20,7 +21,7 @@ export default async function Home() {
   ]
 
   return (
-    <main className="w-full max-w-3xl">
+    <main className="max-w-3xl">
       <Header />
       <section className="mt-16 flex flex-col gap-6 self-start">
         {mockTodos.map(todo => (
@@ -31,6 +32,14 @@ export default async function Home() {
         <Plus color="#fff" className="h-6 w-6" />
       </div>
       <TaskModule />
+      <div className="flex items-center justify-center">
+        <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
+          {mockTodos.map(todo => (
+            <Todo key={todo.name} {...todo} />
+          ))}
+        </div>
+      </div>
+      <Toaster />
     </main>
   )
 }
