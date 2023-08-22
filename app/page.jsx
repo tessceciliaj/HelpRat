@@ -1,6 +1,8 @@
 import { getTasks } from '@/lib/routes'
 import Header from '@/components/Header'
 import Todo from '@/components/Todo'
+import Link from 'next/link'
+import Toaster from '@/components/Toaster'
 
 export default async function Home() {
   const tasks = await getTasks()
@@ -18,13 +20,16 @@ export default async function Home() {
   ]
 
   return (
-    <main className="w-full max-w-3xl">
+    <main className="max-w-3xl">
       <Header />
-      <section className="mt-16 flex flex-col gap-6 self-start px-6">
-        {mockTodos.map(todo => (
-          <Todo key={todo.name} {...todo} />
-        ))}
-      </section>
+      <div className="flex items-center justify-center">
+        <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
+          {mockTodos.map(todo => (
+            <Todo key={todo.name} {...todo} />
+          ))}
+        </div>
+      </div>
+      <Toaster />
     </main>
   )
 }
