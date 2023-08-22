@@ -8,7 +8,7 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // use this view to switch between views
-  // 'login', 'register', 'reset-password'
+  // 'login', 'register', 'reset-password', 'check-email'
   const [view, setView] = useState('login')
 
   const router = useRouter()
