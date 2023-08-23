@@ -1,33 +1,36 @@
-import { getTasks } from '@/lib/routes'
+import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { Plus } from 'lucide-react'
+import { getUserTasks } from '@/lib/routes'
 import Header from '@/components/Header'
+import TaskModule from '@/components/TaskModule'
 import Todo from '@/components/Todo'
-import Link from 'next/link'
 import Toaster from '@/components/Toaster'
 
-export default async function Home() {
-  const tasks = await getTasks()
-  console.log(tasks)
+export const dynamic = 'force-dynamic'
 
-  const mockTodos = [
-    {
-      name: 'buy milk',
-      done: false,
-    },
-    {
-      name: 'clean room',
-      done: true,
-    },
-  ]
+export default async function Home() {
+  const supabase = createServerComponentClient({ cookies })
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
+
+  const { data: tasks, error, status } = await getUserTasks(session.user.id)
+
+  if (error) {
+    console.log(error.message)
+    // handle error
+  }
 
   return (
     <main className="max-w-3xl">
       <Header />
-      <div className="flex items-center justify-center">
-        <div className="max-w-3xl rounded bg-neutral-400 px-6 py-4">
-          {mockTodos.map(todo => (
-            <Todo key={todo.name} {...todo} />
-          ))}
-        </div>
+      <section className="mt-16 flex flex-col gap-6 self-start">
+        {tasks && tasks.map(todo => <Todo key={todo.name} {...todo} />)}
+      </section>
+      <TaskModule />
+      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 hover:scale-110">
+        <Plus color="#fff" className="h-6 w-6" />
       </div>
       <Toaster />
     </main>
