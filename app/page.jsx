@@ -8,6 +8,7 @@ import TaskModule from '@/components/TaskModule'
 import Toaster from '@/components/Toaster'
 
 export const dynamic = 'force-dynamic'
+import { getTasks } from '@/lib/routes'
 
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies })
@@ -29,10 +30,6 @@ export default async function Home() {
         {tasks && tasks.map(todo => <Todo key={todo.name} {...todo} />)}
       </section>
       <TaskModule />
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 hover:scale-110">
-        <Plus color="#fff" className="h-6 w-6" />
-      </div>
-      <Toaster />
     </main>
   )
 }

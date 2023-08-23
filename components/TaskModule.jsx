@@ -1,11 +1,14 @@
 'use client'
 import * as Dialog from '@radix-ui/react-dialog'
+import { Plus } from 'lucide-react'
 
 const TaskModule = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button>+</button>
+        <button className="fixed bottom-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 hover:scale-110">
+          <Plus color="#fff" className="h-6 w-6" />
+        </button>
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-neutral-900 opacity-25" />
