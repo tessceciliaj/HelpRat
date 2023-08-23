@@ -6,6 +6,8 @@ import Header from '@/components/Header'
 import TaskModule from '@/components/TaskModule'
 import Todo from '@/components/Todo'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const supabase = createServerComponentClient({ cookies })
   const {
