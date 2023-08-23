@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Todo from '@/components/Todo'
 import TaskModule from '@/components/TaskModule'
 import { Plus } from 'lucide-react'
+import Toaster from '@/components/Toaster'
 
 export default async function Home() {
   const tasks = await getTasks()
@@ -31,6 +32,7 @@ export default async function Home() {
       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 hover:scale-110">
         <Plus color="#fff" className="h-6 w-6" />
       </div>
+      <Toaster />
     </main>
   )
 }
