@@ -76,7 +76,7 @@ export default function Login() {
        <div className="pt-20">
          <LogoBig />
        </div>
-       <form>
+       <form onSubmit={e => handleOnSubmit(e)}>
          <div className="relative mb-4">
            {view === 'reset-password' ? (
              // Display only email input field for reset-password view
@@ -109,7 +109,11 @@ export default function Login() {
                {view === 'login' && (
                  <button
                    type="button"
-                   onClick={() => setView('reset-password')}
+                   onClick={(e) => {
+                    e.preventDefault()
+                    setView('reset-password')
+                  }
+                }
                    className="w-full text-right text-sm font-semibold text-neutral-700">
                    Forgot password?
                  </button>
@@ -125,7 +129,6 @@ export default function Login() {
            ) : (
              <>
                <button
-                 onClick={e => handleOnSubmit(e)}
                  className="mb-2 rounded bg-neutral-900 p-4 font-semibold text-neutral-100">
                  {view === 'login'
                    ? 'Log in'
@@ -135,8 +138,11 @@ export default function Login() {
                </button>
                <button
                  type="button"
-                 onClick={() =>
-                   switchToView(view === 'register' ? 'login' : 'register')
+                 onClick={(e) =>
+                  { 
+                     e.preventDefault()
+                    switchToView(view === 'register' ? 'login' : 'register')
+                  }
                  }>
                  <p className="mb-0 mr-2 text-sm font-semibold text-neutral-700">
                    {view === 'login'
