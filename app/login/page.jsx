@@ -80,7 +80,7 @@ export default function Login() {
             className="mt-16 w-full rounded border-2 border-neutral-400 p-2"
           />
           <label htmlFor="email" className="sr-only">
-            Username
+            Email
           </label>
           <input
             onChange={e => setPassword(e.target.value)}
@@ -102,7 +102,7 @@ export default function Login() {
             className="mb-2 rounded bg-neutral-900 p-4 font-semibold text-neutral-100">
             Log in
           </button>
-          <button>
+          <button type="button">
             <p className="mb-0 mr-2 text-sm font-semibold text-neutral-700">
               Don&apos;t have an account? Register
             </p>
