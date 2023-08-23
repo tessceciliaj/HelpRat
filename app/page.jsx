@@ -21,7 +21,7 @@ export default async function Home() {
   ]
 
   return (
-    <main className="max-w-3xl">
+    <main className="w-full max-w-3xl">
       <Header />
       <section className="mt-16 flex flex-col gap-6 self-start">
         {mockTodos.map(todo => (
