@@ -17,6 +17,9 @@ export default function Login() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: process.env.BASE_URL,
+      },
     })
 
     if (error) {
@@ -43,15 +46,13 @@ export default function Login() {
   }
 
   const resetPassword = async () => {
-    console.log('reset password not avaliable yet')
-    // await supabase.auth.resetPasswordForEmail(email, {
-    //   redirectTo: `${process.env.BASE_URL}/login/update-password`,
-    // })
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${process.env.BASE_URL}/login/update-password`,
+    })
 
-    // if (error) {
-    //   setToaster({ message: error.message })
-    //   return
-    // }
+    if (error) {
+      console.log(error)
+    }
   }
 
   const handleOnSubmit = e => {
