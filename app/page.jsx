@@ -1,6 +1,5 @@
 import { cookies } from 'next/headers'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-import { Plus } from 'lucide-react'
 import { getUserTasks } from '@/lib/routes'
 import Header from '@/components/Header'
 import TaskSection from '@/components/TaskSection'

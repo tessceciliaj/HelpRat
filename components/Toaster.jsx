@@ -1,39 +1,19 @@
 'use client'
 import { useEffect } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { AlertCircle } from 'lucide-react'
 
-const Toaster = () => {
-  const notify = () => toast('Error')
-
+const Toaster = ({ message, onClose }) => {
   useEffect(() => {
-    const button = document.getElementById('notifyButton')
-    if (button) {
-      button.addEventListener('click', notify)
-    }
-
-    return () => {
-      if (button) {
-        button.removeEventListener('click', notify)
-      }
-    }
-  }, [])
+    const timer = setTimeout(() => {
+      onClose()
+    }, 3200)
+    return () => clearTimeout(timer)
+  }, [onClose])
 
   return (
-    <div>
-      <button id="notifyButton">Test Error Toaster</button>
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+    <div className="absolute bottom-4 left-4 flex items-center gap-4 rounded-lg bg-accent px-8 py-4 text-neutral-100">
+      <AlertCircle />
+      <p>{message}</p>
     </div>
   )
 }

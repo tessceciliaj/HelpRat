@@ -3,8 +3,10 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import supabase from '@/lib/supabase-client'
 import { LogoBig } from '@/components/Logo'
+import Toaster from '@/components/Toaster'
 
 export default function Login() {
+  const [toaster, setToaster] = useState(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // use this view to switch between views
@@ -20,8 +22,7 @@ export default function Login() {
     })
 
     if (error) {
-      console.log({ error })
-      // handle error
+      setToaster({ message: error.message })
       return
     }
   }
@@ -33,8 +34,7 @@ export default function Login() {
     })
 
     if (error) {
-      console.log({ error })
-      // handle error
+      setToaster({ message: error.message })
       return
     }
 
@@ -109,6 +109,9 @@ export default function Login() {
           </button>
         </div>
       </form>
+      {toaster && (
+        <Toaster message={toaster.message} onClose={() => setToaster(null)} />
+      )}
     </main>
   )
 }
