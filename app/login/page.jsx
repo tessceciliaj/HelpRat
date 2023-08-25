@@ -47,6 +47,11 @@ export default function Login() {
     // await supabase.auth.resetPasswordForEmail(email, {
     //   redirectTo: `${process.env.BASE_URL}/login/update-password`,
     // })
+
+    // if (error) {
+    //   setToaster({ message: error.message })
+    //   return
+    // }
   }
 
   const handleOnSubmit = e => {
