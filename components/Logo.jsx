@@ -46,6 +46,7 @@ export const Logo = () => {
 export const LogoBig = () => {
   return (
     <svg
+      style={{ margin: '0 auto' }}
       width="215"
       height="100"
       viewBox="0 0 215 100"
