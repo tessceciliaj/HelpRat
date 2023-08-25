@@ -7,8 +7,6 @@ import { LogoBig } from '@/components/Logo'
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // use this view to switch between views
-  // 'login', 'register', 'reset-password', 'check-email'
   const [view, setView] = useState('login')
 
   const router = useRouter()
@@ -17,6 +15,9 @@ export default function Login() {
     const { error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: process.env.BASE_URL,
+      },
     })
 
     if (error) {
@@ -43,10 +44,13 @@ export default function Login() {
   }
 
   const resetPassword = async () => {
-    console.log('reset password not avaliable yet')
-    // await supabase.auth.resetPasswordForEmail(email, {
-    //   redirectTo: `${process.env.BASE_URL}/login/update-password`,
-    // })
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${process.env.BASE_URL}/login/update-password`,
+    })
+
+    if (error) {
+      console.log(error)
+    }
   }
 
   const handleOnSubmit = e => {
