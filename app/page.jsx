@@ -24,9 +24,6 @@ export default async function Home() {
     <main className="w-full max-w-3xl">
       <Header />
       <TaskSection tasks={tasks} userId={session.user.id} />
-      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-900 hover:scale-110">
-        <Plus color="#fff" className="h-6 w-6" />
-      </div>
     </main>
   )
 }
