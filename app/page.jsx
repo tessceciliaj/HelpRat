@@ -20,7 +20,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="w-full max-w-3xl">
+    <main className="min-h-screen w-full max-w-3xl">
       <Header />
       <TaskSection tasks={tasks} userId={session.user.id} />
     </main>
